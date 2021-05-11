@@ -17,7 +17,7 @@ food = { x: 6, y: 7 };
 function main(ctime) {
     window.requestAnimationFrame(main);
     // console.log(ctime)
-    if ((ctime - lastPaintTime) / 1000 < 1 / speed) {
+    if ((ctime - lastPaintTime) / 1000 < 2 / speed) {
         return;
     }
     lastPaintTime = ctime;
@@ -28,6 +28,7 @@ function isCollide(snake) {
     // If you bump into yourself 
     for (let i = 1; i < snakeArr.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+            musicSound.pause();
             return true;
         }
     }
